@@ -1,21 +1,10 @@
-function list (){requestAjaxListRaking()};
-function levelSearch(){
-    removeOnList();
-        level=document.getElementById('level').value;
-        ajax=new XMLHttpRequest();
-        ajax.open('POST',`bd.php`);
-        ajax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-        ajax.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200){
-                insertOnList(JSON.parse(ajax.responseText));
-            }
-        }
-        ajax.send(`level=${level}`);
-   
+function list (){
+    //function to list the ranking when the page loads
+    requestAjaxListRaking();
 }
-
 function insertOnList(database){
     //function to get data from an array and then put it in the list table
+    requestAjaxListRaking();
     database.forEach(function (value,index){
         let listas=document.getElementById('list');
         let linha=listas.insertRow();
@@ -28,14 +17,23 @@ function insertOnList(database){
         linha.insertCell(4).innerHTML=value['pontos']+' pontos';
      });
 }
-
+function requestAjaxListRaking(){
+    //function for when the page is loaded it pulls data via ajax and passes to the insertList function
+    ajax=new XMLHttpRequest();
+    ajax.open('POST',`bd.php`);
+    ajax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+    ajax.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200){
+            insertOnList(JSON.parse(ajax.responseText));
+        }
+    }
+    ajax.send();
+}
 function removeOnList(){
     //function to get data from an array and then put it in the list table
     var table = document.getElementById('list');
     for(var i = table.rows.length-1; i >= 0; i--){table.deleteRow(i);}
-
 }
-
 function levelConvert(num){
     //function to convert numbers to text for levels
     switch (num){
@@ -53,22 +51,7 @@ function levelConvert(num){
             return 'erro';
     }
 }
-
 function reload(){
-    console.log('OLa')
-}
-
-function requestAjaxListRaking(){
-    //function for when the page is loaded it pulls data via ajax and passes to the insertList function
-    ajax=new XMLHttpRequest();
-    ajax.open('POST',`bd.php`);
-    ajax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-    ajax.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200){
-            insertOnList(JSON.parse(ajax.responseText));
-        }
-    }
-    ajax.send();
-    
-    
+    //function to get the values ​​and update the page from the selector
+    console.log('OLa');
 }
