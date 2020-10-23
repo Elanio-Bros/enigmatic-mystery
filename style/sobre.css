@@ -1,0 +1,30 @@
+body{
+    display:flex;
+    justify-content: center;
+    margin:20px;
+    /* background-color:#4B6B75; */
+    background-color:rgba(0,0,0,0.85);
+    color:white;
+}
+button,select,a{
+    outline-style: none;
+    border:none;
+    font-size: 19px;
+    padding: 5px 15px;
+    color:white;
+    background-color:#00000070;
+    border-radius: 10px; 
+}
+button,select:hover{
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+}
+/* Button edits */
+.btnBack{
+    background-color:#00B339D0;
+}
+.btnBack:active{
+    background-color:#007B39D0;
+}

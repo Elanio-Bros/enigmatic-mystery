@@ -1,0 +1,58 @@
+button,input{
+    outline-style: none;
+    border:none;
+    font-size: 19px;
+    background-color:#00000070;
+}
+button:hover{
+    cursor: pointer;
+}
+#enigima{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img{
+    width: 500px;
+    height: 250px;
+}
+.audio{
+    width: 400px;
+}
+.text{
+    font-family:'Open Sans Bold',sans-serif;
+    text-align: center;
+    color:white;
+    font-size: 20px;
+    padding: 10px;
+}
+#btnPerguntas{
+    display: flex;
+    justify-content: center;
+}
+.btn{
+    color:white;
+    padding: 15px;
+}
+.btnResposta{
+    background-color:#00B339D0;
+    border-radius: 10px 0px 0px 10px;
+}
+.btnResposta:active{
+    background-color:#007B39D0;
+}
+
+.btnDicas{
+    border-radius: 0px;
+    background-color:#DAA520D0;
+}
+.btnDicas:active{
+    background-color: #DA7E20D0;
+}
+.btnNaoSei{
+    background-color:#B31118;
+    border-radius: 0px 10px 10px 0px;
+}
+.btnNaoSei:active{
+    background-color:#7C0C11;
+}

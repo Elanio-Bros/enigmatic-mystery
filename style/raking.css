@@ -1,0 +1,76 @@
+body{
+    display:flex;
+    flex-direction: column;
+    margin:20px;
+    /* background-color:#4B6B75; */
+    background-color:rgba(0,0,0,0.85);
+    color:white;
+}
+button,select,a{
+    outline-style: none;
+    border:none;
+    font-size: 19px;
+    padding: 5px 15px;
+    color:white;
+    background-color:#00000070;
+    border-radius: 10px; 
+}
+button,select:hover{
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+}
+/* Button edits */
+.btnBack{
+    background-color:#00B339D0;
+}
+.btnBack:active{
+    background-color:#007B39D0;
+}
+table{
+    table-layout: fixed;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    word-wrap: break-word;
+}
+tr{
+    height: 10vh;
+}
+th{  
+  background-color: #0000008F;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;  
+  text-align:center;
+  
+}
+td{
+    border:1px;
+    border-style: solid;
+    border-radius: 10px;
+    font-weight: bold;
+    animation: espectro 5s infinite;
+}
+@keyframes espectro{
+    0%{border-color: rgb(128, 0, 128);}
+    15%{border-color:rgb(0,0,255);}
+    30%{border-color:rgb(0,255,255);}
+    50%{border-color:rgb(0,255,0);}
+    65%{border-color:rgb(255,255,0);}
+    80%{border-color:rgb(255,125,0);}
+    100%{border-color: rgb(255, 0, 0);}
+}
+/* classificação */
+td[name="1"]{
+    color:#DAA520;
+}
+td[name="2"]{
+    color:#C0C0C0;
+}
+td[name="3"]{
+    color:#CD7F32;
+}
+
+/* classificação */

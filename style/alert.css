@@ -1,0 +1,29 @@
+#alert{
+    display:none;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: rgba(244, 65, 50, 0.8);
+    margin-bottom:10px;
+    animation: opacidades 1s;
+}
+#msg{
+    font-family:'Open Sans',sans-serif;
+    font-size: 16px;
+    padding: 10px 5px 10px 5px;
+    margin: 0 auto;
+    color: rgba(255,255,255, 0.8);
+    
+}
+#x{
+    display: flex;
+    align-self:flex-start;
+    padding-right:5px;
+    color: rgba(100,0, 0, 0.5);
+}
+#x:hover{
+    cursor: pointer;
+}
+@keyframes opacidades{
+    from{ opacity:0;}
+    to {opacity:1;}
+}

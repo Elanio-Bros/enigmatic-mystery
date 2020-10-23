@@ -1,0 +1,41 @@
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Raking</title>
+    <script src="script/requisitions.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/font/font.css">
+    <link rel="stylesheet" type="text/css" href="style/raking.css">
+</head>
+<body onLoad='list()'>
+    <!-- Fundo em video -->
+    <!-- Fundo em video -->
+    <form onchange="reload()">
+        <div class=''>
+            <select id='level' OnChange='levelSearch()'>
+                <option value="">Todos os Níveis</option>
+                <option value="1">&#128512; Muito Fácil</option>
+                <option value="2">&#128513; Fácil</option>
+                <option value="3">&#128523; Médio</option>
+                <option value="4">&#128526; Difícil</option>
+                <option value="5">&#128545; Muito Difício</option>
+            </select>
+            </button> <a class="btnBack" href="./">Voltar</a>
+        </div>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Classificação</th>
+                <th>Nickname</th>
+                <th>Nivel Feito</th>
+                <th>Fases</th>
+                <th>Pontuação</th>
+            </tr>
+        </thead>
+        <tbody id='list'>
+            
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
+@font-face{
+    font-family:'Open Sans';
+    src: url(OpenSans-Light.ttf);
+}
+@font-face{
+    font-family:'Open Sans Italic';
+    src: url(OpenSans-LightItalic.ttf);
+}
+@font-face{
+    font-family:'Open Sans Bold';
+    src: url(OpenSans-Bold.ttf);
+}
+
+@font-face{
+    font-family:'Open Sans Bold Italic';
+    src: url(OpenSans-BoldItalic.ttf);
+}
+@font-face{
+    font-family:'Open Sans Extra Bold';
+    src: url(OpenSans-ExtraBold.ttf);
+}
+::-webkit-input-placeholder {
+    color:white;
+ }
+ 
+ :-moz-placeholder {
+    color:white;
+ }
+ 
+ ::-moz-placeholder {
+    color:white;
+ }
+ 
+ :-ms-input-placeholder {  
+    color:white;
+ }

@@ -1,0 +1,59 @@
+body{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color:#4B6B75; */
+    background-color:rgba(0,0,0,0.85);
+    color:white;   
+}
+button,input,select{
+    outline-style: none;
+    border:none;
+    font-size: 19px;
+    padding: 5px 15px;
+    color:white;
+    background-color:#00000070;
+    border-radius: 10px; 
+}
+button,select:hover{
+    cursor: pointer;
+}
+#selecao{
+    display:flex;
+    flex-direction: column;
+    padding: 30px 35px 50px 35px;
+    border-radius: 5px;
+    background-color:#00000050;
+}
+.input{
+    display: block;
+    margin:0 auto;
+}
+#btnRS{
+    display: flex;
+    justify-content: space-around;
+}
+
+.btnComecar{
+    background-color:#00B339D0;
+}
+.btnComecar:active{
+    background-color:#007B39D0;
+}
+
+.btnRaking{
+    font-family: 'Open Sans Italic', sans-serif;
+    background-color:#DAA520D0;
+}
+.btnRaking:active{
+    background-color: #DA7E20D0;
+}
+
+.btnSobre{
+    font-family: 'Open Sans Italic', sans-serif;
+    background-color:#0AC0C9D0;
+}
+.btnSobre:active{
+    background-color:#0A6BC9D0; 
+}
