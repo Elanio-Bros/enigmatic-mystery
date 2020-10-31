@@ -1,11 +1,12 @@
-<?php 
+<?php
+//private
 class User{
     public $nickName;
     public $nivel;
     public $num;
     public $faseFinal;
     public $pontos=0;
-    public $fase=0;
+    public $fase=1;
 
     public function __construct($nickName,$nivel,$num,$faseFinal){
         $this->nickName=$nickName;
@@ -16,14 +17,17 @@ class User{
     public function addPontos($qntd){
         $this->pontos=$this->pontos+$qntd;
     }
+    public function getPontos($qntd){
+        return $this->pontos;
+    }
     public function addFase(){
         $this->fase++;
     }
-    public function __get($attr){
-        return $this->$attr;
+    public function getFase(){
+        return $this->fase;
     }
-    public function __set($attr,$value){
-        $this->$attr=$value;
+    public function getFaseFinal(){
+        return $this->faseFinal;
     }
 
 }

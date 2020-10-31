@@ -4,7 +4,6 @@ function list (){
 }
 function insertOnList(database){
     //function to get data from an array and then put it in the list table
-    requestAjaxListRaking();
     database.forEach(function (value,index){
         let listas=document.getElementById('list');
         let linha=listas.insertRow();
@@ -20,7 +19,7 @@ function insertOnList(database){
 function requestAjaxListRaking(){
     //function for when the page is loaded it pulls data via ajax and passes to the insertList function
     ajax=new XMLHttpRequest();
-    ajax.open('POST',`bd.php`);
+    ajax.open('POST',`raking_query.php`);
     ajax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
     ajax.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200){
