@@ -17,21 +17,22 @@ if (isset($_SESSION['user'])) {
     <title><?= $enigma->getTitle($user->getFase()) ?></title>
     <link rel="stylesheet" type="text/css" href="style/font/font.css">
     <link rel="stylesheet" type="text/css" href="style/riddles.css">
-    <script src='script/request.js'></script>
+    <script src='script/requisitions.js'></script>
 </head>
 
-<body style="background-color:black">
+<body style="background-color:black" onload="respostaToggle()">
     <div id="enigima">
         <form action="proxima.php" method="POST">
             <?= $enigma->structures($user->getFase()) ?>
-            <div class='resposta'>
+            <div id='alert'></div>
+            <div id='resposta'>
                 <input type="text" class='respostaInpt' name='rsp'>
                 <input type="submit" value='Verificar' class='respostaBtn'>
             </div>
             <div id="btnPerguntas">
-                <button type='submit' class="btn btnResposta">Responder</button>
-                <button type='submit' class="btn btnDicas" value='dica'>Dica</button>
-                <button class="btn btnNaoSei" type='submit' name='rsp' value='nsi'>Não Sei</button>
+                <button type='button' class="btn btnResposta" onclick="respostaToggle()">Responder</button>
+                <button type='button' class="btn btnDicas">Dica</button>
+                <button type='button' class="btn btnNaoSei" name='rsp' value='nsi'>Não Sei</button>
             </div>
         </form>
     </div>

@@ -27,11 +27,12 @@ button:hover{
     font-size: 20px;
     padding: 10px;
 }
-.resposta{
-    display: flex;
+#resposta{
+    display: none;
     justify-content: center;
     margin-bottom:15px ;
     height:50px;
+    animation: opacidades 1s;
 }
 .respostaInpt{
     background-color:white;
@@ -74,4 +75,8 @@ button:hover{
 }
 .btnNaoSei:active{
     background-color:#7C0C11;
+}
+@keyframes opacidades{
+    from{opacity:0;}
+    to {opacity:1;}
 }
