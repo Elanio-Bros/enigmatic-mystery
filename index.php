@@ -39,6 +39,14 @@ session_destroy();
                     <option value="4">&#128526; Difícil</option>
                     <option value="5">&#128545; Muito Difício</option>
                 </select>
+
+                <div class='radiosBtn'>
+                    <label class='label'>Pergunta e Respota</label>
+                    <input type='radio' class='radioButton' name='tipo' value='PR' checked>
+                    <label class='label'>Roteiro</label>
+                    <input type='radio' class='radioButton' name='tipo' value='RT'>
+                </div>
+
                 <button class="input btnComecar" onClick="return checkForm()">Começar</button>
             </form>
         </div>

@@ -65,3 +65,16 @@ function respostaToggle() {
         document.getElementById('resposta').style.display = 'none';
     }
 }
+
+function btnDica(){
+    ajax = new XMLHttpRequest();
+    ajax.open('POST', `proxima.php`);
+    ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    ajax.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let a=ajax.responseText
+            document.getElementById('dica').innerHTML+=`<label>${a}</label>`;
+        }
+    }
+    ajax.send(`dica=true`);
+}

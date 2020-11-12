@@ -13,39 +13,50 @@ class Enigmas
         $this->enigma = BD(--$numRandom);
     }
 
-    public function getTitle($num)
+    public function getTitle($numPagina)
     {
-        $title = $this->enigma['titles'][--$num];
+        $title = $this->enigma['titles'][--$numPagina];
         return $title;
     }
 
-    private function getMedia($num)
+    private function getMedia($numPagina)
     {
-        $media = $this->enigma['medias'][--$num];
+        $media = $this->enigma['medias'][--$numPagina];
         return $media;
     }
 
-    private function getText($num)
+    private function getText($numPagina)
     {
-        $text = $this->enigma['texts'][--$num];
+        $text = $this->enigma['texts'][--$numPagina];
         return $text;
     }
 
-    private function getLink($num)
+    public function getDica($numPagina,$numDica)
     {
-        $link = $this->enigma['links'][--$num];
+        $dicas = $this->enigma['dicas'][--$numPagina][--$numDica];
+        return $dicas;
+    }
+    public function qtndDica($numPagina)
+    {
+        $count = count($this->enigma['dicas'][--$numPagina]);
+        return $count;
+    }
+
+    private function getLink($numPagina)
+    {
+        $link = $this->enigma['links'][--$numPagina];
         return $link;
     }
-    public function getRespota($num)
+    public function getResposta($numPagina)
     {
-        $resposta = $this->enigma['respostas'][--$num];
+        $resposta = $this->enigma['respostas'][--$numPagina];
         return $resposta;
     }
-    public function structures($num)
+    public function structures($numPagina)
     {
-        $letras = $this->getMedia($num);
-        $link = $this->getLink($num);
-        $text = $this->getText($num);
+        $letras = $this->getMedia($numPagina);
+        $link = $this->getLink($numPagina);
+        $text = $this->getText($numPagina);
         $tipo = ['f', 'v', 'a', 't'];
         $nome = ['foto', 'video', 'audio', 'text'];
         $medias = array();
@@ -85,4 +96,3 @@ class Enigmas
         return 3;
     }
 }
-//pensar melhor echo 

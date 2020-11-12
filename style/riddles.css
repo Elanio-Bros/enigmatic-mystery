@@ -8,6 +8,20 @@ button,input{
 button:hover{
     cursor: pointer;
 }
+#alert{
+    color:white;
+}
+#dica{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color:white;
+    margin-bottom:20px;
+}
+#dica label{
+    text-align: center;
+    display: block;
+}
 #enigima{
     display: flex;
     flex-direction: column;

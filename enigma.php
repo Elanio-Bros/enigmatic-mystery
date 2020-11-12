@@ -6,12 +6,12 @@ session_start();
 if (isset($_SESSION['user'])) {
     $enigma = $_SESSION['enigma'];
     $user = $_SESSION['user'];
+    $user->resetDica();
 } else {
     header('Location:.');
 }
 ?>
 <html lang="pt-br">
-
 <head>
     <meta charset="utf-8">
     <title><?= $enigma->getTitle($user->getFase()) ?></title>
@@ -22,17 +22,20 @@ if (isset($_SESSION['user'])) {
 
 <body style="background-color:black" onload="respostaToggle()">
     <div id="enigima">
+        <?php if(isset($_GET['err']) && $_GET['err']=='rsp'){ ?>
+            <div id='alert'>Ola</div>
+        <?php } ?>
         <form action="proxima.php" method="POST">
-            <?= $enigma->structures($user->getFase()) ?>
-            <div id='alert'></div>
+            <?=$enigma->structures($user->getFase())?>
+            <div id='dica'></div>
             <div id='resposta'>
                 <input type="text" class='respostaInpt' name='rsp'>
                 <input type="submit" value='Verificar' class='respostaBtn'>
             </div>
             <div id="btnPerguntas">
                 <button type='button' class="btn btnResposta" onclick="respostaToggle()">Responder</button>
-                <button type='button' class="btn btnDicas">Dica</button>
-                <button type='button' class="btn btnNaoSei" name='rsp' value='nsi'>Não Sei</button>
+                <button type='button' class="btn btnDicas" onclick="btnDica()">Dica</button>
+                <button type='submit' class="btn btnNaoSei" name='nsi' value='nsi'>Não Sei</button>
             </div>
         </form>
     </div>

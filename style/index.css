@@ -26,6 +26,9 @@ button,select:hover{
     border-radius: 5px;
     background-color:#00000050;
 }
+.radiosBtn{
+    margin-bottom: 15px;
+}
 .input{
     display: block;
     margin:0 auto;

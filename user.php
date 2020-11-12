@@ -7,6 +7,7 @@ class User{
     public $faseFinal;
     public $pontos=0;
     public $fase=1;
+    public $dica=0;
 
     public function __construct($nickName,$nivel,$num,$faseFinal){
         $this->nickName=$nickName;
@@ -14,14 +15,23 @@ class User{
         $this->num=$num;
         $this->faseFinal=$faseFinal;
     }
-    public function addPontos($qntd){
-        $this->pontos=$this->pontos+$qntd;
+    public function addPontos($qntdPontos,$qntdDicas){
+        $this->pontos=$this->pontos+($qntdPontos-$qntdDicas);
     }
-    public function getPontos($qntd){
+    public function getPontos(){
         return $this->pontos;
     }
     public function addFase(){
         $this->fase++;
+    }
+    public function getDica(){
+        return $this->dica;
+    }
+    public function addDica(){
+        $this->dica++;
+    }
+    public function resetDica(){
+        $this->dica=0;
     }
     public function getFase(){
         return $this->fase;
