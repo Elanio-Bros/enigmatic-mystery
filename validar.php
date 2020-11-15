@@ -19,7 +19,7 @@ function numAle($numEnigmas){
 }
 function NumEnigmas($nivel){
     //pegar do banco
-    return 1;
+    return 2;
 }
 
 ?>

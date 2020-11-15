@@ -23,7 +23,7 @@ if (isset($_SESSION['user'])) {
 <body style="background-color:black" onload="respostaToggle()">
     <div id="enigima">
         <?php if(isset($_GET['err']) && $_GET['err']=='rsp'){ ?>
-            <div id='alert'>Ola</div>
+            <div id='alert'>Respota Errada</div>
         <?php } ?>
         <form action="proxima.php" method="POST">
             <?=$enigma->structures($user->getFase())?>

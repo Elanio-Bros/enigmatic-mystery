@@ -10,7 +10,7 @@ function insertOnList(database) {
         let linha = listas.insertRow();
         let linha1 = linha.insertCell();
         linha1.innerHTML = (index + 1) + 'º';
-        (index + 1 == 1 || index + 1 == 2 || index + 1 == 3) ? linha1.setAttribute('name', index + 1): linha1.setAttribute('name', 'num');
+        linha1.setAttribute('name', index + 1);
         linha.insertCell(1).innerHTML = value['nickname'];
         linha.insertCell(2).innerHTML = levelConvert(value['nivel']);
         linha.insertCell(3).innerHTML = (value['fase'] == 0) ? ("Completou") : (value['fase']);
