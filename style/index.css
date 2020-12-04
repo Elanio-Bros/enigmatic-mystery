@@ -16,18 +16,35 @@ button,input,select{
     background-color:#00000070;
     border-radius: 10px; 
 }
-button,select:hover{
+button,select,#radioR,#radioPR,.label:hover{
     cursor: pointer;
 }
 #selecao{
     display:flex;
     flex-direction: column;
-    padding: 30px 35px 50px 35px;
-    border-radius: 5px;
+    padding: 40px 50px 40px 50px;
+    border-radius: 10px;
     background-color:#00000050;
 }
+
+#radioR,#radioPR{
+    border:white 2px solid;
+    width:150px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+}
+.ocultar{
+    display: none;
+}
 .radiosBtn{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-between;
+    column-width: 10px;    
     margin-bottom: 15px;
+    height: 80px;
 }
 .input{
     display: block;
