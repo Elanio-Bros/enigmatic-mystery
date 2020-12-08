@@ -1,15 +1,21 @@
+@import url('font/font.css');
+*{
+    color:white;
+}
+body{
+    background-color:black;
+}
 button,input{
     outline-style: none;
     border:none;
     font-size: 19px;
     background-color:#00000070;
-    color:white;
 }
 button:hover{
     cursor: pointer;
 }
 #alert{
-    color:white;
+    color:red;
 }
 #dica{
     display: flex;
@@ -27,12 +33,16 @@ button:hover{
     flex-direction: column;
     align-items: center;
 }
-.img{
+img,video{
     width: 500px;
     height: 250px;
 }
-.audio{
+audio{
     width: 400px;
+}
+.midia{
+    display: flex;
+    justify-content: center;
 }
 .text{
     font-family:'Open Sans Bold',sans-serif;
@@ -51,7 +61,7 @@ button:hover{
 .respostaInpt{
     background-color:white;
     color: black;
-    border: red solid 1px;
+    border: green solid 1px;
     border-radius: 10px 0px 0px 10px;
 }
 .respostaBtn{
@@ -65,7 +75,6 @@ button:hover{
     justify-content: center;
 }
 .btn{
-    color:white;
     padding: 15px;
 }
 .btnResposta{

@@ -24,6 +24,9 @@ class User{
     public function addFase(){
         $this->fase++;
     }
+    public function getFase(){
+        return $this->fase;
+    }
     public function getDica(){
         return $this->dica;
     }
@@ -33,9 +36,7 @@ class User{
     public function resetDica(){
         $this->dica=0;
     }
-    public function getFase(){
-        return $this->fase;
-    }
+    
     public function getFaseFinal(){
         return $this->faseFinal;
     }

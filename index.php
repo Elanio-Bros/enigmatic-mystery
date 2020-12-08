@@ -7,9 +7,7 @@ session_destroy();
 <head>
     <meta charset="utf-8">
     <title>Enigmas</title>
-    <link rel="stylesheet" type="text/css" href="style/font/font.css">
     <link rel="stylesheet" type="text/css" href="style/index.css">
-    <link rel="stylesheet" type="text/css" href="style/alert.css">
     <script src="script/script.js"></script>
 </head>
 <body>
@@ -41,11 +39,11 @@ session_destroy();
                 </select>
 
                 <div class='radiosBtn'>
-                    <div id="radioPR" title="Essa opção é para perguntas e respotas" onclick="teste(1)">
+                    <div id="radioPR" title="Essa opção é para perguntas e respotas" onclick="toogleRadio(0)">
                         <input type='radio' class="ocultar" name='tipo' value='PR'>
                         <label class='label'>Perguntas</label>
                     </div>
-                    <div id="radioR" title="Essa opção é para roteiro"  onclick="teste(2)">
+                    <div id="radioR" title="Essa opção é para roteiro"  onclick="toogleRadio(1)">
                         <input type='radio' class="ocultar" name='tipo' value='RT'>
                         <label class='label'>Roteiro</label>
                     </div>

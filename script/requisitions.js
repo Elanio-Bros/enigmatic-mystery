@@ -21,7 +21,7 @@ function insertOnList(database) {
 function requestAjaxListRaking() {
     //function for when the page is loaded it pulls data via ajax and passes to the insertList function
     ajax = new XMLHttpRequest();
-    ajax.open('POST', `raking_query.php`);
+    ajax.open('POST', `ranking.php`);
     ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     ajax.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -68,7 +68,7 @@ function respostaToggle() {
 
 function btnDica(){
     ajax = new XMLHttpRequest();
-    ajax.open('POST', `proxima.php`);
+    ajax.open('POST', `check_answer.php`);
     ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     ajax.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {

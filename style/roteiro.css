@@ -1,0 +1,6 @@
+@import url('riddles.css');
+.conteudo{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}

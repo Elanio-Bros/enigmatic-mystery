@@ -1,0 +1,1 @@
+<?php include_once "private/raking_query.php" ?>

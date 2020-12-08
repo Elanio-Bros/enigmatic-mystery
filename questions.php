@@ -1,7 +1,7 @@
 <?php
 //private
-include_once "enigmas_query.php";
-include_once "user.php";
+include_once "private/class/enigmas_query.php";
+include_once "private/class/user.php";
 session_start();
 if (isset($_SESSION['user'])) {
     $enigma = $_SESSION['enigma'];
@@ -20,12 +20,12 @@ if (isset($_SESSION['user'])) {
     <script src='script/requisitions.js'></script>
 </head>
 
-<body style="background-color:black" onload="respostaToggle()">
+<body onload="respostaToggle()">
     <div id="enigima">
         <?php if(isset($_GET['err']) && $_GET['err']=='rsp'){ ?>
             <div id='alert'>Respota Errada</div>
         <?php } ?>
-        <form action="proxima.php" method="POST">
+        <form action="check_answer.php" method="POST">
             <?=$enigma->structures($user->getFase())?>
             <div id='dica'></div>
             <div id='resposta'>

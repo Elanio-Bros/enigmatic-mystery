@@ -1,5 +1,5 @@
 <?php
-include_once 'SimulatedBD.php';
+include_once 'private/SimulatedBD.php';
 
 //private
 class Enigmas
@@ -78,13 +78,13 @@ class Enigmas
         $structure = '';
         switch ($name) {
             case 'foto':
-                $structure = "<div><img class='img' src='$link'></div><br/>";
+                $structure = "<div class='midia'><img src='$link'></div><br/>";
                 break;
             case 'video':
-                $structure = "<div><video class ='img' src='$link' preload='auto' controls controlslist='nodownload'></video></div><br/>";
+                $structure = "<div class='midia'><video src='$link' preload='auto' controls controlslist='nodownload'></video></div><br/>";
                 break;
             case 'audio':
-                $structure = "<div><audio class ='audio' src=$link preload='auto' controls controlslist='nodownload'></audio></div>";
+                $structure = "<div class='midia'><audio src=$link preload='auto' controls controlslist='nodownload'></audio></div>";
                 break;
         }
         return $structure;

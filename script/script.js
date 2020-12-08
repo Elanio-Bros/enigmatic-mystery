@@ -34,14 +34,15 @@ function x(){
     document.getElementById("alert").style.display="none";
 }
 
-function teste(num){
-    if(num==1){
-        document.getElementById('radioR').style.borderColor='white';
+function toogleRadio(num){
+    const noselect='white';
+    if(num==0){
+        document.getElementById('radioR').style.borderColor=noselect;
         document.getElementById('radioPR').style.borderColor='blue';
         document.getElementsByName('tipo')[0].checked=true;
-    }else if(num==2){
-        document.getElementById('radioPR').style.borderColor='white';
-        document.getElementById('radioR').style.borderColor='blue';
+    }else if(num==1){
+        document.getElementById('radioPR').style.borderColor=noselect;
+        document.getElementById('radioR').style.borderColor='red';
         document.getElementsByName('tipo')[1].checked=true;
     }
 }
