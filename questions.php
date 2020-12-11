@@ -25,8 +25,8 @@ if (isset($_SESSION['user'])) {
         <?php if(isset($_GET['err']) && $_GET['err']=='rsp'){ ?>
             <div id='alert'>Respota Errada</div>
         <?php } ?>
+        <?=$enigma->structures($user->getFase())?>
         <form action="check_answer.php" method="POST">
-            <?=$enigma->structures($user->getFase())?>
             <div id='dica'></div>
             <div id='resposta'>
                 <input type="text" class='respostaInpt' name='rsp'>

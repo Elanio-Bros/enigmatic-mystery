@@ -33,12 +33,16 @@ button:hover{
     flex-direction: column;
     align-items: center;
 }
-img,video{
+img{
+    width: 50%;
+    height: 250px;
+}
+video{
     width: 500px;
     height: 250px;
 }
 audio{
-    width: 400px;
+    width: 30em;
 }
 .midia{
     display: flex;
