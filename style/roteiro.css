@@ -5,15 +5,33 @@
     margin-top: 5px;
 }
 .conteudo2{
-    width:60%;
+    width:90%;
+}
+.conteudo audio{
+    width:40%;
+    margin:1%;
+}
+.conteudo p{
+    width:50%;
+    margin:1%;
+}
+.conteudo4{
+    width: 90%;
 }
 img{
-    width: 100%;
+    width: 50%;
+    margin: auto;
+}
+p{
+    text-align: justify;
+}
+.img{
+    width: 50%;
 }
 .row{
     flex-direction: row;
 }
 .column{
-    justify-content: center;
+    margin: auto;
     flex-direction: column;
 }

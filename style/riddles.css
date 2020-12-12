@@ -14,8 +14,23 @@ button,input{
 button:hover{
     cursor: pointer;
 }
+img{
+    width: 50%;
+    height: 250px;
+}
+video{
+    width: 500px;
+    height: 250px;
+}
+audio{
+    width: 30em;
+}
+
 #alert{
     color:red;
+    font-weight:bold;
+    margin-bottom:2%;
+    
 }
 #dica{
     display: flex;
@@ -33,17 +48,7 @@ button:hover{
     flex-direction: column;
     align-items: center;
 }
-img{
-    width: 50%;
-    height: 250px;
-}
-video{
-    width: 500px;
-    height: 250px;
-}
-audio{
-    width: 30em;
-}
+
 .midia{
     display: flex;
     justify-content: center;
