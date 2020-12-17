@@ -1,47 +1,87 @@
 <?php
 //private
-include_once "private/class/enigmas_query.php";
+include_once "private/class/questions_formate.php";
+include_once "private/class/journal_formate.php";
 include_once "private/class/user.php";
 
 session_start();
 $user = $_SESSION['user'];
-$enigma = $_SESSION['enigma'];
 
+if($user->type=='PR'){
+    $enigma = $_SESSION['enigma'];
 
-if(isset($_POST['dica']) && $_POST['dica']=='true'){
-    echo dica($user,$enigma);
+    if(isset($_POST['dica']) && $_POST['dica']=='true'){
+        echo dica($user,$enigma);
+    }
+    if(isset($_POST['nsi'])&& $_POST['nsi']=='nsi'){
+        resposta($user,$enigma,'nsi');
+    }
+    if(isset($_POST['rsp'])&& $_POST['rsp']!=''){
+        resposta($user,$enigma,strtolower($_POST['rsp']));
+    }
 }
-if(isset($_POST['nsi'])&& $_POST['nsi']=='nsi'){
-    resposta($user,$enigma,'nsi');
-}
-if(isset($_POST['rsp'])&& $_POST['rsp']!=''){
-    resposta($user,$enigma,strtolower($_POST['rsp']));
+if($user->type=='RT'){
+    if(isset($_POST['dica']) && $_POST['dica']=='true'){
+        echo dica($user,null,"Ola");
+    }
+    if(isset($_POST['nsi'])&& $_POST['nsi']=='nsi'){
+        resposta($user,'','nsi');
+    }
+    // if(isset($_POST['rsp'])&& $_POST['rsp']!=''){
+    //     resposta($user,$enigma,strtolower($_POST['rsp']));
+    // }
+
+    
 }
 
-function resposta($user,$enigma,$resposta){
-    if($user->getFase() == $user->getFaseFinal()){
-        //adicionar informações ao banco de dados
-        header("Location:ranking.html");
+function dica($user,$question=null,$journal=null){
+    if($user->type=='PR'){
+        $user->addDica();
+        if($user->getDica()<=$question->qtndDica($user->getFase())){
+            return $user->getDica()."º)".$question->getDica($user->getFase(), $user->getDica());
+        }
     }
-    else if($resposta=='nsi'){
-        $user->addFase();
-        header("Location:questions.php");
+    if($user->type=='RT'){
+        $user->addDica();
+        if($user->getDica()<=$journal->qtndDica($user->getFase())){
+            return $user->getDica()."º)".$journal->getDica($user->getFase(), $user->getDica());
+        }
     }
-    else if($enigma->getResposta($user->getFase())==$resposta){
-        $user->addFase();
-        $user->addPontos(5,$user->getDica());
-        header("Location:questions.php");
-    }
-    else if($enigma->getResposta($user->getFase())!=$resposta){
-        header("Location:questions.php?err=rsp");
-    }
+}
+
+ function resposta($user,$enigma,$resposta){
+     if($user->type=='PR'){
+        if($user->getFase() == $user->getFaseFinal()){
+            //adicionar informações ao banco de dados
+            header("Location:ranking.html");
+        }
+        else if($resposta=='nsi'){
+            $user->addFase();
+            header("Location:questions.php");
+        }
+        else if($enigma->getResposta($user->getFase())==$resposta){
+            $user->addFase();
+            $user->addPontos(5,$user->getDica());
+            header("Location:questions.php");
+        }
+        else if($enigma->getResposta($user->getFase())!=$resposta){
+            header("Location:questions.php?err=rsp");
+        }
+     }else if($user->type='RT'){
+
+        if($resposta=='nsi'){
+            header("Location:ranking.html");
+        }
+        else if($enigma->getResposta($user->getFase())==$resposta){
+            //subistituir o 5 por uma quantidade variavel de acordo com a respota
+            $user->addPontos(5,$user->getDica());
+            header("Location:ranking.html");
+        }
+        else if($enigma->getResposta($user->getFase())!=$resposta){
+            header("Location:journal.php?err=rsp");
+        }
+     }
+    
     
     $user->resetDica();
-}
-
-function dica($user,$enigma){
-    $user->addDica();
-    if($user->getDica()<=$enigma->qtndDica($user->getFase())){
-        return $user->getDica()."º)".$enigma->getDica($user->getFase(), $user->getDica());
-    }
-}
+}  

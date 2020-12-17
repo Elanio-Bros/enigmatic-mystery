@@ -92,8 +92,6 @@ class Enigmas
 
     public function getNumPags()
     {
-        //pegar do banco
-        
         return count($this->enigma['titles']);
     }
 }
