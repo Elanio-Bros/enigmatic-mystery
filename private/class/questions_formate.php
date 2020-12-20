@@ -2,14 +2,14 @@
 include_once 'private/SimulatedBD.php';
 
 //private
-class Enigmas
+class Questions
 {
     public $enigma;
 
     public function __construct($numRandom)
     {
         //requeições ao banco de dados
-        //teste
+        //teste questions
         $this->enigma = BD(--$numRandom);
     }
 

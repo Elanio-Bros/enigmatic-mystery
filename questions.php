@@ -4,7 +4,7 @@ include_once "private/class/questions_formate.php";
 include_once "private/class/user.php";
 session_start();
 if (isset($_SESSION['user'])) {
-    $enigma = $_SESSION['enigma'];
+    $question = $_SESSION['question'];
     $user = $_SESSION['user'];
     $user->resetDica();
 } else {
@@ -14,7 +14,7 @@ if (isset($_SESSION['user'])) {
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
-    <title><?= $enigma->getTitle($user->getFase()) ?></title>
+    <title><?= $question->getTitle($user->getFase()) ?></title>
     <link rel="stylesheet" type="text/css" href="style/font/font.css">
     <link rel="stylesheet" type="text/css" href="style/riddles.css">
     <script src='script/requisitions.js'></script>
@@ -25,7 +25,7 @@ if (isset($_SESSION['user'])) {
         <?php if(isset($_GET['err']) && $_GET['err']=='rsp'){ ?>
             <div id='alert'>Respota Errada</div>
         <?php } ?>
-        <?=$enigma->structures($user->getFase())?>
+        <?=$question->structures($user->getFase())?>
         <form action="check_answer.php" method="POST">
             <div id='dica'></div>
             <div id='resposta'>
