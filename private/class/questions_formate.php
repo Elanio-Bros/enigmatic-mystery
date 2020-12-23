@@ -52,7 +52,7 @@ class Questions
         $resposta = $this->enigma['respostas'][--$numPagina];
         return $resposta;
     }
-    public function structures($numPagina)
+    public function structure($numPagina)
     {
         $letras = $this->getMedia($numPagina);
         $link = $this->getLink($numPagina);

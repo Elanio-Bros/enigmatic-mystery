@@ -7,6 +7,7 @@ session_destroy();
 <head>
     <meta charset="utf-8">
     <title>Enigmas</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/icon.png">
     <link rel="stylesheet" type="text/css" href="style/index.css">
     <script src="script/script.js"></script>
 </head>
