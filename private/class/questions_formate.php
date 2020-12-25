@@ -30,6 +30,11 @@ class Questions
         $text = $this->enigma['texts'][--$numPagina];
         return $text;
     }
+    private function getLink($numPagina)
+    {
+        $link = $this->enigma['links'][--$numPagina];
+        return $link;
+    }
 
     public function getDica($numPagina,$numDica)
     {
@@ -42,11 +47,7 @@ class Questions
         return $count;
     }
 
-    private function getLink($numPagina)
-    {
-        $link = $this->enigma['links'][--$numPagina];
-        return $link;
-    }
+    
     public function getResposta($numPagina)
     {
         $resposta = $this->enigma['respostas'][--$numPagina];
@@ -81,10 +82,10 @@ class Questions
                 $structure = "<div class='midia'><img src='$link'></div><br/>";
                 break;
             case 'video':
-                $structure = "<div class='midia'><video src='$link' preload='auto' controls controlslist='nodownload'></video></div><br/>";
+                $structure = "<div class='midia'><video src='$link' preload='auto' controls controlslist='nodownload'/></div><br/>";
                 break;
             case 'audio':
-                $structure = "<div class='midia'><audio src=$link preload='auto' controls controlslist='nodownload'></audio></div>";
+                $structure = "<div class='midia'><audio src=$link preload='auto' controls controlslist='nodownload'/></div>";
                 break;
         }
         return $structure;

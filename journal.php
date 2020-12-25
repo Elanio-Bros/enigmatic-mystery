@@ -14,7 +14,7 @@ if (isset($_SESSION['user'])) {
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
-    <title><?=$journal->getTitle(); ?></title>
+    <title><?=$journal->title?></title>
     <link rel="shortcut icon" type="image/x-icon" href="img/icon.png">
     <link rel="stylesheet" type="text/css" href="style/roteiro.css">
     <script src='script/requisitions.js'></script>

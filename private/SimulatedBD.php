@@ -51,11 +51,12 @@ function BD($num){
         $BD=array(
             [
             'titles'=>['Ola'],
-            'strutures'=>['1,a'],//
-            'texts'=>["Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."],
+            'strutures'=>['1','2','3','0'],//
+            'media'=>['a','i',''],//
+            'texts'=>["Ola","Blz","Tudo Bem"],
             'respostas'=>['ola','demais','legal'],
             'dicas'=>['Massa','Bom','Lorem','Legal'],//maximo de 4 dicas por pagina  
-            'links'=>["http://principal.com/pcc/media/teste.mp3"]
+            'links'=>["http://principal.com/pcc/media/teste.mp3",'https://statig0.akamaized.net/bancodeimagens/5w/6r/ep/5w6rep16o2e497c3x5n8ydhi0.jpg','']
             ],
         );
         return $BD[$num];

@@ -4,71 +4,59 @@
   class Journal
   {
       public $enigma;
+      public $title;
   
       public function __construct($numRandom)
       {
           //requeições ao banco de dados
           //teste journal
           $this->enigma = BD(0);
+          $this->title = $this->enigma['titles'][0];
       }
-  
-      public function getTitle()
+      public function get($tipo,$num)
       {
-          $title = $this->enigma['titles'][0];
-          return $title;
+          $acessoBD = $this->enigma[$tipo][$num];
+          return $acessoBD;
       }
-      public function getText()
-      {
-          $title = $this->enigma['text'][0];
-          return $title;
-      }
+
       public function structure()
     {
        // separa entre letras e numeros
-        $strutures=explode(",",$this->enigma['strutures'][0]);
-        return $this->montandoEstrura(1,"Ola");
+        $strutures=$this->enigma['strutures'];
+        $juntos=null;
+        foreach($strutures as $key => $value){
+            if($value==0){
+                $juntos=$this->montandoEstrura($juntos,);
+            }else{
+                $juntos=$juntos.''.$this->montandoEstrura($this->get('texts',$key),$value,$this->get('media',$key),$this->get('links',$key));
+            }
+            
+        }
+        return $juntos;
     }
 
-    private function montandoEstrura($valor,$conteudo){
+    private function montandoEstrura($conteudo,$valor=0,$media=null,$link=null){
+        if($media!=null){
+            $media=$this->media($media,$link);
+        }
        switch($valor){
-            case 1:
-                return "<div class='conteudo row'>
-                <img class='img' src='https://img.freepik.com/vetores-gratis/imagens-animadas-abstratas-neon-lines_23-2148344065.jpg?size=626&ext=jpg'>
-                <p>Ola</p></div>";
-                break;
-            case 2:
-                return "<div class='conteudo row'>
-                <p>Ola</p>
-                <img class='img' src='https://img.freepik.com/vetores-gratis/imagens-animadas-abstratas-neon-lines_23-2148344065.jpg?size=626&ext=jpg'>
-                </div>";
-                break;
-            case 3:
-                return "<div class='conteudo2 column'>
-                <img src=''>
-                <p></p></div>";
-                break;
-            case 4:
-                return "<div class='conteudo2 column'><p></p></div>";
-            break;
+            case 1:return "<div class='conteudo row'><p>$conteudo</p>$media</div>";
 
-            default:
-            return "<div class='conteudo4'>$conteudo</div>";
+            case 2:return "<div class='conteudo row'>$media<p>$conteudo</p></div>";
+
+            case 3:return "<div class='conteudo2 column'>$media<p>$conteudo</p></div>";
+
+            default:return "<div class='conteudo4'>$conteudo</div>";
 
 
        }
     }
 
-    private function media($media,$src){
+    private function media($media,$link){
         switch($media){
-             case 'i':
-                 return "<img class='img' src=''>";
-                 break;
-             case 'v':
-                 return "<video controls src='' type='video/mp4'/>";
-                 break;
-             case 'a':
-                 return  "<img class='img' src=''>";
-                 break;
+             case 'i':return "<img class='img' src='$link'>";
+             case 'v':return "<video src='$link' preload='auto' controls controlslist='nodownload'/>";
+             case 'a':return  "<audio src='$link' preload='auto' controls controlslist='nodownload'/>";
         }
      }
 }
