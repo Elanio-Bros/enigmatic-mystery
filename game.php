@@ -1,11 +1,14 @@
 <?php
 //private
-include_once "private/class/questions_formate.php";
+include_once "private/class/question&journal_formate.php";
 include_once "private/class/user.php";
 session_start();
 if (isset($_SESSION['user'])) {
-    $question = $_SESSION['question'];
+    $game = $_SESSION['game'];
     $user = $_SESSION['user'];
+    if($user->type=='PR'){
+        $game->numFase($user->getFase());
+    }
     $user->resetDica();
 } else {
     header('Location:.');
@@ -14,7 +17,7 @@ if (isset($_SESSION['user'])) {
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
-    <title><?= $question->getTitle($user->getFase()) ?></title>
+    <title><?= $game->title ?></title>
     <link rel="shortcut icon" type="image/x-icon" href="img/icon.png">
     <link rel="stylesheet" type="text/css" href="style/font/font.css">
     <link rel="stylesheet" type="text/css" href="style/riddles.css">
@@ -26,7 +29,7 @@ if (isset($_SESSION['user'])) {
         <?php if(isset($_GET['err']) && $_GET['err']=='rsp'){ ?>
             <div id='alert'>Respota Errada</div>
         <?php } ?>
-        <?=$question->structure($user->getFase())?>
+        <?=$game->structure()?>
         <form action="check_answer.php" method="POST">
             <div id='dica'></div>
             <div id='resposta'>

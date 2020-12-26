@@ -1,13 +1,13 @@
 <?php
 //private
 class User{
-    public $nickName;
-    public $nivel;
-    public $num;
-    public $faseFinal;
-    public $pontos=0;
-    public $fase=1;
-    public $dica=0;
+    private $nickName;
+    private $nivel;
+    private $num;
+    private $faseFinal;
+    private $pontos=0;
+    private $fase=1;
+    private $dica=0;
     public $type='';
 
     public function __construct($type,$nickName,$nivel,$num,$faseFinal=null){

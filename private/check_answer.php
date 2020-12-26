@@ -1,7 +1,6 @@
 <?php
 //private
-include_once "private/class/questions_formate.php";
-include_once "private/class/journal_formate.php";
+include_once "private/class/questions&journal_formate.php";
 include_once "private/class/user.php";
 
 session_start();
@@ -57,15 +56,15 @@ function dica($user,$question=null,$journal=null){
         }
         else if($resposta=='nsi'){
             $user->addFase();
-            header("Location:questions.php");
+            header("Location:game.php");
         }
         else if($enigma->getResposta($user->getFase())==$resposta){
             $user->addFase();
             $user->addPontos(5,$user->getDica());
-            header("Location:questions.php");
+            header("Location:game.php");
         }
         else if($enigma->getResposta($user->getFase())!=$resposta){
-            header("Location:questions.php?err=rsp");
+            header("Location:game.php?err=rsp");
         }
      }else if($user->type='RT'){
 
@@ -78,7 +77,7 @@ function dica($user,$question=null,$journal=null){
             header("Location:ranking.html");
         }
         else if($enigma->getResposta($user->getFase())!=$resposta){
-            header("Location:journal.php?err=rsp");
+            header("Location:game.php?err=rsp");
         }
      }
     

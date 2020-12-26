@@ -1,6 +1,6 @@
 <?php 
 //private
-include_once "class/questions_formate.php";
+include_once "class/question&journal_formate.php";
 include_once "class/journal_formate.php";
 include_once "class/user.php";
 session_start();
@@ -14,9 +14,8 @@ if($_POST['tipo']=='PR'){
     $user=new User($_POST['tipo'],$_POST['nickname'],$_POST['nivel'],$numEnigma,$numPag);
 
     $_SESSION['user']=$user;
-    $_SESSION['question']=$question;
+    $_SESSION['game']=$question;
 
-    header("Location:questions.php");
 
 }else if($_POST['tipo']=='RT'){
 
@@ -25,16 +24,18 @@ if($_POST['tipo']=='PR'){
     $journal= new Journal($numEnigma);
 
     $_SESSION['user']=$user;
-    $_SESSION['journal']=$journal;
+    $_SESSION['game']=$journal;
 
-    header("Location:journal.php");
+    
 }
+
+header("Location:game.php");
 
 function numEngima($nivel,$tipo=null){
     //pegar do banco
-    $qntdEnigmas=2;
+    $qntdEnigmas=1;
     //
     $rand=rand(1,$qntdEnigmas);
-    return $rand;
+    return ($rand-1);
 }
 ?>
