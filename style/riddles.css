@@ -14,15 +14,15 @@ button,input{
 button:hover{
     cursor: pointer;
 }
-img{
+.midia img{
     width: 50%;
     height: 250px;
 }
-video{
+.midia video{
     width: 500px;
     height: 250px;
 }
-audio{
+.midia audio{
     width: 30em;
 }
 

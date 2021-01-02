@@ -20,7 +20,8 @@ if (isset($_SESSION['user'])) {
     <title><?= $game->title ?></title>
     <link rel="shortcut icon" type="image/x-icon" href="img/icon.png">
     <link rel="stylesheet" type="text/css" href="style/font/font.css">
-    <link rel="stylesheet" type="text/css" href="style/riddles.css">
+    <?php if ($user->type=='PR'){?><link rel="stylesheet" type="text/css" href="style/riddles.css"><?php }?>
+    <?php if ($user->type=='RT'){?><link rel="stylesheet" type="text/css" href="style/roteiro.css"><?php }?>
     <script src='script/requisitions.js'></script>
 </head>
 

@@ -55,10 +55,10 @@ function BD2($num){
             'medias'=>['a','i',''],//
             'texts'=>["Ola","Blz","Tudo Bem"],
             'respostas'=>['ola','demais','legal'],
+            'pontos'=>[50,60,70],
             'dicas'=>['Massa','Bom','Lorem','Legal'],//maximo de 4 dicas por pagina  
             'links'=>["http://principal.com/pcc/media/teste.mp3",'https://statig0.akamaized.net/bancodeimagens/5w/6r/ep/5w6rep16o2e497c3x5n8ydhi0.jpg','']
             ],
         );
         return $BD[$num];
     }
-?>

@@ -1,19 +1,16 @@
 @import url('riddles.css');
+
 .conteudo,.conteudo2{
     display: flex;
     margin-bottom: 10px;
     margin-top: 5px;
 }
-.conteudo2{
-    width:90%;
-}
-.conteudo audio{
-    width:40%;
-    margin:1%;
-}
 .conteudo p{
     width:50%;
-    margin:1%;
+    margin:2%;
+}
+.conteudo2{
+    width:90%;
 }
 .conteudo4{
     width: 90%;
@@ -22,11 +19,12 @@ img{
     width: 50%;
     margin: auto;
 }
+audio{
+    width: 30em;
+    margin: auto;
+}
 p{
     text-align: justify;
-}
-.img{
-    width: 50%;
 }
 .row{
     flex-direction: row;
