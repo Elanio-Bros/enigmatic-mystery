@@ -13,38 +13,45 @@ class Questions
     public $title;
     public $fase;
 
-    public function __construct($numRandom)
+    public function __construct($idEnigma)
     {
-        //requeições ao banco de dados
-        //teste questions
-        $this->enigma = BD($numRandom);
+        try {
+            $bd = new BancoDeDados('perguntas');
+            $bd->prepare($bd->SelectGame());
+            $bd->bindValue(0, $idEnigma);
+            $bd->execute();
+            $this->enigma = $bd->getStatement()->fetchAll(PDO::FETCH_ASSOC)[0];
+        } catch (PDOException $e) {
+            echo 'Erro:' . $e->getCode() . '<br/>' . 'Mensagem:' . $e->getMessage();
+        }
     }
 
     public function numFase($fase)
     {
         $this->fase = ($fase - 1);
-        $this->title = $this->enigma['titles'][$this->fase];
+        $title = explode(",", $this->enigma['titles']);
+        $this->title = $title[$this->fase];
     }
 
     private function get($type)
     {
-        $type = $this->enigma[$type][$this->fase];
+        $type = explode(",", $this->enigma[$type])[$this->fase];
         return $type;
     }
-
     public function getDica($numPagina, $numDica)
     {
-        $dicas = $this->enigma['dicas'][--$numPagina][--$numDica];
+        $dicas =explode(";",explode(",", $this->enigma['dicas'])[$this->fase])[--$numDica];
         return $dicas;
     }
     public function qtndDica($numEnigima)
     {
-        $count = count($this->enigma['dicas'][--$numEnigima]);
+        $count = count(explode(";",explode(",", $this->enigma['dicas'])[$this->fase]));
         return $count;
     }
     public function getResposta($numPagina)
     {
-        $resposta = $this->enigma['respostas'][--$numPagina];
+        $resposta = explode(",", $this->enigma['respostas']);
+        $resposta=$resposta[$this->fase];
         return $resposta;
     }
     public function structure()
@@ -53,13 +60,12 @@ class Questions
         $link = $this->get(LINK);
         $text = $this->get(TEXT);
         $tipo = ['f', 'v', 'a', 't'];
-        $nome = ['foto', 'video', 'audio', 'text'];
         $medias = array();
-        for ($i = 0; $i < 4; $i++) {
+        for ($i = 0; $i <= 3; $i++) {
             $numStructure = strpos($letras, $tipo[$i]);
             if ($numStructure === 0 || $numStructure >= 1) {
                 if ($tipo[$i] != 't') {
-                    $medias[$numStructure] = $this->structuringMedia($nome[$i], $link[$nome[$i]]);
+                    $medias[$numStructure] = $this->structuringMedia($i, $link[$i]);
                 } else {
                     $medias[$numStructure] = "<div class='text'>$text</div>";
                 }
@@ -72,13 +78,13 @@ class Questions
     {
         $structure = '';
         switch ($name) {
-            case 'foto':
+            case 0:
                 $structure = "<div class='midia'><img src='$link'></div><br/>";
                 break;
-            case 'video':
+            case 1:
                 $structure = "<div class='midia'><video src='$link' preload='auto' controls controlslist='nodownload'/></div><br/>";
                 break;
-            case 'audio':
+            case 2:
                 $structure = "<div class='midia'><audio src=$link preload='auto' controls controlslist='nodownload'/></div>";
                 break;
         }
@@ -87,7 +93,7 @@ class Questions
 
     public function getNumPags()
     {
-        return count($this->enigma['titles']);
+        return count(explode(",", $this->enigma['titles']));
     }
 }
 
@@ -97,11 +103,17 @@ class Journal
     public $title;
     private $numResposta;
 
-    public function __construct($numRandom)
+    public function __construct($idEnigma)
     {
-        //requeições ao banco de dados
-        //teste journal
-        $this->enigma = BD2($numRandom);
+        try {
+            $bd = new BancoDeDados('roteiros');
+            $bd->prepare($bd->SelectGame());
+            $bd->bindValue(0, $idEnigma);
+            $bd->execute();
+            $this->enigma = $bd->getStatement()->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Erro:' . $e->getCode() . '<br/>' . 'Mensagem:' . $e->getMessage();
+        }
         $this->title = $this->enigma['titles'][0];
     }
     public function get($tipo, $num)
@@ -134,18 +146,18 @@ class Journal
         return $juntos;
     }
     public function getResposta($resposta)
-    {   
-        $codigo=false;
-        foreach($this->enigma['respostas'] as $key=>$respotas){
-            if($respotas==$resposta){
-                $this->numFase=$key;
-                $codigo=true;
+    {
+        $codigo = false;
+        foreach ($this->enigma['respostas'] as $key => $respotas) {
+            if ($respotas == $resposta) {
+                $this->numFase = $key;
+                $codigo = true;
             }
         }
         return $codigo;
-        
     }
-    public function pontosRespota(){
+    public function pontosRespota()
+    {
         return $this->enigma['pontos'][$this->numFase];
     }
 

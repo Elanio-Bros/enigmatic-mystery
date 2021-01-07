@@ -32,11 +32,11 @@ session_destroy();
                 <input type="text" class="input" name="nickname" placeholder="Digite um Nickname">
                 <select class="input" style="margin:15px;" name="nivel" >
                     <option value="">Selecione o Nível</option>
-                    <option value="1">&#128512; Muito Fácil</option>
-                    <option value="2">&#128513; Fácil</option>
-                    <option value="3">&#128523; Médio</option>
-                    <option value="4">&#128526; Difícil</option>
-                    <option value="5">&#128545; Muito Difícil</option>
+                    <option value="muito facil">&#128512; Muito Fácil</option>
+                    <option value="facil">&#128513; Fácil</option>
+                    <option value="medio">&#128523; Médio</option>
+                    <option value="dificil">&#128526; Difícil</option>
+                    <option value="muito dificil">&#128545; Muito Difícil</option>
                 </select>
 
                 <div class='radiosBtn'>
