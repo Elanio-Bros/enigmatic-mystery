@@ -1,56 +1,13 @@
 <?php
 //Teste da questions
-function BD($num)
-{
-    $BD = array(
-        [
-            'titles' => ['Ola', 'Demais', 'Tudo bem'], //um titulo por pagina
-            'medias' => ['fvat', 'tf', 'atfv'], //
-            'texts' => ['Demais', 'Blz', 'Tudo Bom'], //um tipo de texto
-            'respostas' => ['ola', 'demais', 'legal'], //uma respota por questão sempre em minisculo
-            'dicas' => [['Massa', 'Bom', 'Dia', 'Legal'], ['Ola', 'é', 'a'], ['b', 'c']], //maximo de 4 dicas por pagina  
-            'links' => [
-                [
-                    'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/1bcfd914-5496-4c73-9288-0e19831cb9a3/d1cmpz8-cb7cea1d-e4a8-4768-8498-5c84cdb600f1.png',
-                    'http://v2v.cc/~j/theora_testsuite/320x240.ogg',
-                    'media/teste.mp3'
-                ],
-                [
-                    'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/1bcfd914-5496-4c73-9288-0e19831cb9a3/d1cmpz8-cb7cea1d-e4a8-4768-8498-5c84cdb600f1.png'
-                ],
-                [
-                    'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/1bcfd914-5496-4c73-9288-0e19831cb9a3/d1cmpz8-cb7cea1d-e4a8-4768-8498-5c84cdb600f1.png',
-                    'http://v2v.cc/~j/theora_testsuite/320x240.ogg',
-                    'media/teste.mp3'
-                ]
-            ] // uma midia por pagina
-        ]
-    );
-    return $BD[$num];
-}
-function qtndEngimas()
-{
-    //puxar do banco
-    return 2;
-}
+//0=foto
+//1=video
+//2=audio
 
+//, para cada enigima por pargina
+//; para divisãso na paginas como medias e dicas
 //Teste da Journal
-function BD2($num)
-{
-    $BD = array(
-        [
-            'titles' => ['Ola'],
-            'strutures' => ['1', '2', '3', '0'], //
-            'medias' => ['a', 'i', ''], //
-            'texts' => ["Ola", "Blz", "Tudo Bem"],
-            'respostas' => ['ola', 'demais', 'legal'],
-            'pontos' => [50, 60, 70],
-            'dicas' => ['Massa', 'Bom', 'Lorem', 'Legal'], //maximo de 4 dicas por pagina  
-            'links' => ["http://principal.com/pcc/media/teste.mp3", 'https://statig0.akamaized.net/bancodeimagens/5w/6r/ep/5w6rep16o2e497c3x5n8ydhi0.jpg', '']
-        ],
-    );
-    return $BD[$num];
-}
+
 
  class BancoDeDados
 {

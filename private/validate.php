@@ -11,7 +11,8 @@ if($_POST['tipo']=='PR'){
     $numEnigma=numEngima($_POST['nivel'],$tipo); 
     $question= new Questions($numEnigma['id']);
     $numPag=$question->getNumPags();
-    $user=new User($_POST['tipo'],$_POST['nickname'],$_POST['nivel'],$numEnigma['id'],$numPag=null);
+    echo $numPag;
+    $user=new User($_POST['tipo'],$_POST['nickname'],$_POST['nivel'],$numEnigma['id'],$numPag);
 
     $_SESSION['user']=$user;
     $_SESSION['game']=$question;
@@ -19,9 +20,8 @@ if($_POST['tipo']=='PR'){
 else if($_POST['tipo']=='RT'){
     $tipo="roteiros";
     $numEnigma=numEngima($_POST['nivel'],$tipo);
+    $journal= new Journal($numEnigma['id']);
     $user=new User($_POST['tipo'],$_POST['nickname'],$_POST['nivel'],$numEnigma['id']);
-    $journal= new Journal($numEnigma);
-
     $_SESSION['user']=$user;
     $_SESSION['game']=$journal;
 }

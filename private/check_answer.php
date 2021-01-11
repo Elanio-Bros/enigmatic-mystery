@@ -55,11 +55,11 @@ function resposta($user, $game, $resposta)
         } else if ($resposta == 'nsi') {
             $user->addFase();
             header("Location:game.php");
-        } else if ($game->getResposta($user->getFase()) == $resposta) {
+        } else if ($game->getResposta() == $resposta) {
             $user->addFase();
-            $user->addPontos(5, $user->getDica());
+            $user->addPontos(10, $user->getDica());
             header("Location:game.php");
-        } else if ($game->getResposta($user->getFase()) != $resposta) {
+        } else if ($game->getResposta() != $resposta) {
             header("Location:game.php?err=rsp");
         }
     } else if ($user->type = 'RT') {
