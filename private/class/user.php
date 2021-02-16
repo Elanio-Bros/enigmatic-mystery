@@ -27,6 +27,9 @@ class User
             $this->pontos = $this->pontos + ($qntdPontos - ($qntdDicas*10));
         }
     }
+    public function getAllDados(){
+        return [$this->nickName,$this->nivel,$this->fase,$this->pontos];
+    }
     public function getPontos()
     {
         return $this->pontos;

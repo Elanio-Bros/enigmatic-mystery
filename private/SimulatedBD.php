@@ -52,5 +52,16 @@
         $query = "SELECT * FROM " . $this->tabela . " WHERE id=?";
         return $query;
     }
+    public function SelectRaking()
+    {
+        $query = "SELECT * FROM " . $this->tabela ." ORDER BY pontos DESC";
+        return $query;
+    }
+    public function InsertRaking()
+    {
+        $query = "INSERT INTO raking VALUES (?,?,?,?)";
+        return $query;
+        
+    }
     
 }

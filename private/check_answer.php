@@ -51,7 +51,7 @@ function resposta($user, $game, $resposta)
     if ($user->type == 'PR') {
         if ($user->getFase() == $user->getFaseFinal()) {
             //adicionar informações ao banco de dados
-            header("Location:ranking.html");
+            header("Location:final_point.php");
         } else if ($resposta == 'nsi') {
             $user->addFase();
             header("Location:game.php");
@@ -64,11 +64,11 @@ function resposta($user, $game, $resposta)
         }
     } else if ($user->type = 'RT') {
         if ($resposta == 'nsi') {
-            header("Location:ranking.html");
+            header("Location:final_point.php");
         } else if ($game->getResposta($resposta)) {
             //subistituir o 5 por uma quantidade variavel de acordo com a respota
             $user->addPontos($game->pontosRespostas(), $user->getDica());
-            header("Location:ranking.html");
+            header("Location:final_point.php");
         } else if (!$game->getResposta($resposta)) {
             header("Location:game.php?err=rsp");
         }
