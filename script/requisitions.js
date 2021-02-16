@@ -39,24 +39,6 @@ function removeOnList() {
     }
 }
 
-function levelConvert(num) {
-    //function to convert numbers to text for levels
-    switch (num) {
-        case 1:
-            return '&#128512; Muito Fácil';
-        case 2:
-            return '&#128513; Fácil';
-        case 3:
-            return '&#128523; Médio';
-        case 4:
-            return '&#128526; Difícil'
-        case 5:
-            return '&#128545; Muito Difícil'
-        default:
-            return 'erro';
-    }
-}
-
 function respostaToggle() {
     let resposta = document.getElementById('resposta').style.display;
     if (resposta == "none") {

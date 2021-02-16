@@ -50,7 +50,7 @@ class Questions
     }
     public function getLink()
     {
-        $link = explode(",",explode(";", $this->enigma['links'])[$this->fase]);
+        $link = explode(",", explode(";", $this->enigma['links'])[$this->fase]);
         return $link;
     }
 
@@ -63,15 +63,17 @@ class Questions
     public function structure()
     {
         $letras = $this->get(MIDIA);
-        $info= $this->getLink();
-        array_push($info,$this->get(TEXT));
+        $info = $this->getLink();
+        array_push($info, $this->get(TEXT));
         $tipo = ['f', 'v', 'a', 't'];
-        $medias =array();
-        foreach ($tipo as $key=>$value){
-            $numStructure=strpos($letras,$value);
-            $medias[$numStructure] = $this->structuringMedia($key, $info[$key]);   
+        $medias = array();
+        foreach ($tipo as $key => $value) {
+            $numStructure = strpos($letras, $value);
+            if(is_numeric($numStructure)){
+                $medias[$numStructure] = $this->structuringMedia($key, $info[$key]);
+            }
         }
-        ksort($medias); 
+        ksort($medias);
         return implode('', $medias);
     }
 
@@ -90,7 +92,7 @@ class Questions
                 break;
             case 3:
                 $structure = "<div class='text'>$info</div>";
-            break;
+                break;
         }
         return $structure;
     }
@@ -112,35 +114,35 @@ class Journal
         try {
             $bd = new BancoDeDados('roteiros');
             $bd->prepare($bd->SelectGame());
-            $bd->bindValue(0,$idEnigma);
+            $bd->bindValue(0, $idEnigma);
             $bd->execute();
             $this->enigma = $bd->getStatement()->fetchAll(PDO::FETCH_ASSOC)[0];
         } catch (PDOException $e) {
             echo 'Erro:' . $e->getCode() . '<br/>' . 'Mensagem:' . $e->getMessage();
         }
-        
+
         $this->title = $this->enigma['titles'];
         echo $this->title;
     }
     public function get($tipo, $num)
     {
-        $acessoBD = explode(',',$this->enigma[$tipo])[$num];
+        $acessoBD = explode(',', $this->enigma[$tipo])[$num];
         return $acessoBD;
     }
     public function getDica($numDica)
     {
-        $dicas = explode(',',$this->enigma['dicas'])[--$numDica];
+        $dicas = explode(',', $this->enigma['dicas'])[--$numDica];
         return $dicas;
     }
     public function qtndDica()
     {
-        $count = count(explode(',',$this->enigma['dicas']));
+        $count = count(explode(',', $this->enigma['dicas']));
         return $count;
     }
     public function structure()
     {
         // separa entre letras e numeros
-        $strutures = explode(',',$this->enigma['strutures']);
+        $strutures = explode(',', $this->enigma['strutures']);
         $juntos = null;
         foreach ($strutures as $key => $value) {
             if ($value == 0) {
@@ -154,8 +156,8 @@ class Journal
     public function getResposta($resposta)
     {
         $codigo = false;
-        $Getrespostas=explode(',',$this->enigma['respostas']);
-        foreach ( $Getrespostas as $key => $respotas) {
+        $Getrespostas = explode(',', $this->enigma['respostas']);
+        foreach ($Getrespostas as $key => $respotas) {
             if ($respotas == $resposta) {
                 $this->numFase = $key;
                 $codigo = true;
@@ -165,10 +167,7 @@ class Journal
     }
     public function pontosRespostas()
     {
-        echo '<pre>';
-        var_dump(explode(',',$this->enigma['pontos']));
-        echo '</pre>';
-        return explode(',',$this->enigma['pontos'])[$this->numFase];
+        return explode(',', $this->enigma['pontos'])[$this->numFase];
     }
 
     private function montandoEstrura($conteudo, $valor = 0, $media = null, $link = null)

@@ -35,7 +35,7 @@ function dica($user, $game)
     if ($user->type == 'PR') {
         $user->addDica();
         if ($user->getDica() <= $game->qtndDica($user->getFase())) {
-            return $user->getDica() . "º)" . $game->getDica($user->getFase(), $user->getDica());
+            return $user->getDica() . "º)" . $game->getDica($user->getDica());
         }
     }
     if ($user->type == 'RT') {
@@ -66,7 +66,6 @@ function resposta($user, $game, $resposta)
         if ($resposta == 'nsi') {
             header("Location:final_point.php");
         } else if ($game->getResposta($resposta)) {
-            //subistituir o 5 por uma quantidade variavel de acordo com a respota
             $user->addPontos($game->pontosRespostas(), $user->getDica());
             header("Location:final_point.php");
         } else if (!$game->getResposta($resposta)) {
