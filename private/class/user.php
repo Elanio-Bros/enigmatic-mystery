@@ -21,14 +21,17 @@ class User
     }
     public function addPontos($qntdPontos, $qntdDicas)
     {
-        if ($this->type == 'PR') {
-            $this->pontos = $this->pontos + ($qntdPontos - $qntdDicas);
-        } else if($this->type == 'RT'){
-            $this->pontos = $this->pontos + ($qntdPontos - ($qntdDicas*10));
+        $pontos=$this->pontos + ($qntdPontos - ($qntdDicas*5));
+        if($pontos>=0){
+            if ($this->type == 'PR') {
+                $this->pontos = $pontos;
+            } else if($this->type == 'RT'){
+                $this->pontos = $pontos;
+            }
         }
     }
     public function getAllDados(){
-        return [$this->nickName,$this->nivel,$this->fase,$this->pontos];
+        return [$this->nickName,$this->nivel,$this->type,$this->fase,$this->pontos];
     }
     public function getPontos()
     {

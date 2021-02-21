@@ -1,5 +1,5 @@
 <?php
-require 'private/SimulatedBD.php';
+require_once 'private/SimulatedBD.php';
 
 const MIDIA = "medias";
 const TEXT = "texts";
@@ -40,7 +40,7 @@ class Questions
     }
     public function getDica($numDica)
     {
-        $dicas = explode(",", explode(";", $this->enigma['dicas'])[$this->fase])[--$numDica];
+        $dicas = explode(",", explode(";", $this->enigma['dicas'])[$this->fase])[$numDica];
         return $dicas;
     }
     public function qtndDica()
@@ -75,6 +75,10 @@ class Questions
         }
         ksort($medias);
         return implode('', $medias);
+    }
+    public function pontosRespostas()
+    {
+        return explode(',', $this->enigma['pontos'])[$this->fase];
     }
 
     private function structuringMedia($value, $info)

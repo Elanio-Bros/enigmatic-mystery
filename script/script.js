@@ -64,3 +64,14 @@ function levelConvert(num) {
             return 'erro';
     }
 }
+function typeConvert(num) {
+    //function to convert numbers to text for levels
+    switch (num) {
+        case 'PR':
+            return 'Perguntas';
+        case 'RT':
+            return 'Roteiro';
+        default:
+            return 'erro';
+    }
+}

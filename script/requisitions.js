@@ -12,9 +12,10 @@ function insertOnList(database) {
         linha1.innerHTML = (index + 1) + 'º';
         linha1.setAttribute('name', index + 1);
         linha.insertCell(1).innerHTML = value['nickname'];
-        linha.insertCell(2).innerHTML = levelConvert(parseInt(value['nivel']));
-        linha.insertCell(3).innerHTML = (value['fase'] == 0) ? ("Completou") : (value['fase']);
-        linha.insertCell(4).innerHTML = value['pontos'] + ' pontos';
+        linha.insertCell(2).innerHTML = typeConvert(value['tipo']);
+        linha.insertCell(3).innerHTML = levelConvert(parseInt(value['nivel']));
+        linha.insertCell(4).innerHTML = (value['fase'] == 0) ? ("Completou") : (value['fase']);
+        linha.insertCell(5).innerHTML = value['pontos'] + ' pontos';
     });
 }
 

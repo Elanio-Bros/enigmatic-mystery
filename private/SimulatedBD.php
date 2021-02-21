@@ -59,9 +59,8 @@
     }
     public function InsertRaking()
     {
-        $query = "INSERT INTO raking VALUES (?,?,?,?)";
+        $query = "INSERT INTO raking VALUES (?,?,?,?,?)";
         return $query;
-        
     }
     
 }

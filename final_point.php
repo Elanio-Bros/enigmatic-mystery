@@ -30,20 +30,21 @@ if (isset($_SESSION['user'])) {
     </head>
 
     <body>
-        <h1>Parabéns <?= $dados[0] ?> finalizou um de vários Engimas no Modo:</h1>
-        <h1 id="modo"></h1>
-        <h1>Sua pontuação foi: <?= $dados[3] ?></h1>
-        <?php if ($dados[3] >= 10) { ?>
+        <h1>Parabéns <?= $dados[0] ?> finalizou um de vários Engimas no Modo:
+        <br><span id="modo"></span> no tipo <span id="tipo"></span></h1>
+        <h1>Sua pontuação foi: <?= $dados[4] ?></h1>
+        <?php if ($dados[4] >= 10) { ?>
             <h1><span name="record">Parabéns 👏👏👏👏👏</span></h1>
-        <?php } else if ($dados[3] > 0 && $dados[3] > 10) { ?>
+        <?php } else if ($dados[4] > 0 && $dados[4] > 10) { ?>
             <h1><span name="record">Boa tente melhorar na proxima 🤗🤗🤗🤗🤗</span></h1>
-        <?php } else if ($dados[3] == 0) { ?>
+        <?php } else if ($dados[4] == 0) { ?>
             <h1><span name="record">Tente mais da proxima vez 😥😥😥😥😥</span></h1>
         <?php } ?>
         </button> <a class="btnBack" href="./">Voltar</a>
     </body>
     <script>
         document.getElementById('modo').innerHTML = levelConvert(<?= $dados[1] ?>)
+        document.getElementById('tipo').innerHTML = typeConvert('<?= $dados[2] ?>')
     </script>
     <script>
         setInterval(function() {
