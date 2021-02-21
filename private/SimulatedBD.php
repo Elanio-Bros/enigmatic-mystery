@@ -59,7 +59,17 @@
     }
     public function InsertRaking()
     {
-        $query = "INSERT INTO raking VALUES (?,?,?,?,?)";
+        $query = "INSERT INTO raking VALUES (?,?,?,?,?) where not";
+        return $query;
+    }
+    public function UpdateRakingNick()
+    {
+        $query = "UPDATE raking SET nivel=?,fase=?,pontos=? WHERE nickname=? AND tipo=?";
+        return $query;
+    }
+    public function SelectRakingNick()
+    {
+        $query = "SELECT nickname,tipo FROM raking WHERE nickname=?";
         return $query;
     }
     

@@ -5,12 +5,24 @@ session_start();
 if (isset($_SESSION['user'])) {
     $bd = new BancoDeDados('raking');
     $user = $_SESSION['user'];
+    $bd->prepare($bd->SelectRakingNick());
+    $bd->bindValue(0, $user->getNickname());
+    $rakingValues = $bd->getStatement()->fetchAll(PDO::FETCH_ASSOC);
     $dados = $user->getAllDados();
-    $bd->prepare($bd->InsertRaking());
-    foreach ($dados as $key => $value) {
-        $bd->bindValue($key, $value);
+    if (count($rakingValues) != 0) {
+        $bd->prepare($bd->InsertRaking());
+        foreach ($dados as $key => $value) {
+            $bd->bindValue($key, $value);
+        }
+        $bd->execute();
+    } else {
+        $dadosUpdate = $user->getAllDadosUpdate();
+        $bd->prepare($bd->UpdateRakingNick());
+        foreach ($dadosUpdate  as $key => $value) {
+            $bd->bindValue($key, $value);
+        }
+        $bd->execute();
     }
-    $bd->execute();
     session_unset();
     session_destroy();
 } else {
@@ -31,7 +43,8 @@ if (isset($_SESSION['user'])) {
 
     <body>
         <h1>Parabéns <?= $dados[0] ?> finalizou um de vários Engimas no Modo:
-        <br><span id="modo"></span> no tipo <span id="tipo"></span></h1>
+            <br><span id="modo"></span> no tipo <span id="tipo"></span>
+        </h1>
         <h1>Sua pontuação foi: <?= $dados[4] ?></h1>
         <?php if ($dados[4] >= 10) { ?>
             <h1><span name="record">Parabéns 👏👏👏👏👏</span></h1>
@@ -49,7 +62,7 @@ if (isset($_SESSION['user'])) {
     <script>
         setInterval(function() {
             window.location.href = "./";
-        },20000);
+        }, 20000);
     </script>
 
     </html>

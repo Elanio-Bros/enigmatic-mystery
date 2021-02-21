@@ -33,6 +33,12 @@ class User
     public function getAllDados(){
         return [$this->nickName,$this->nivel,$this->type,$this->fase,$this->pontos];
     }
+    public function getAllDadosUpdate(){
+        return [$this->nivel,$this->fase,$this->pontos,$this->nickName,$this->type];
+    }
+    public function getNickname(){
+        return $this->nickName;
+    }
     public function getPontos()
     {
         return $this->pontos;
