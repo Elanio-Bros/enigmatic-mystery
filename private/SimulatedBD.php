@@ -59,7 +59,7 @@
     }
     public function InsertRaking()
     {
-        $query = "INSERT INTO raking VALUES (?,?,?,?,?) where not";
+        $query = "INSERT INTO raking VALUES (?,?,?,?,?)";
         return $query;
     }
     public function UpdateRakingNick()
