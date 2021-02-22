@@ -28,7 +28,7 @@ if (isset($_SESSION['user'])) {
 <body onload="respostaToggle()">
     <div id="enigima">
         <?php if(isset($_GET['err']) && $_GET['err']=='rsp'){ ?>
-            <div id='alert'>Respota Errada</div>
+            <div id='alert'>Resposta Errada</div>
         <?php } ?>
         <?=$game->structure()?>
         <form action="check_answer.php" method="POST">

@@ -19,6 +19,16 @@ button,select,a{
 button,select:hover{
     cursor: pointer;
 }
+.head{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.text{
+    width: 50%;
+    text-align: justify;
+}
 a{
     text-decoration: none;
 }

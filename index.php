@@ -12,11 +12,6 @@ session_destroy();
     <script src="script/script.js"></script>
 </head>
 <body>
-
-    <!-- video Fundo -->
-    
-    <!-- video Fundo Fim -->
-
     
     <!-- alert -->
         <div id="alert" style="display:none">
@@ -45,7 +40,7 @@ session_destroy();
                         <label class='label'>Perguntas</label>
                     </div>
                     <div id="radioR" title="Essa opção é para roteiro"  onclick="toogleRadio(1)">
-                        <input type='radio' class="ocultar" name='tipo' value='RT'>
+                        <input type='radio' class="ocultar" name='tipo' value='RT' disable>
                         <label class='label'>Roteiro</label>
                     </div>
                 </div>

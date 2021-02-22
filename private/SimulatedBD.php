@@ -5,7 +5,7 @@
 //2=audio
 
 //, para cada enigima por pargina
-//; para divisãso na paginas como medias e dicas
+//; para divisãos na paginas como medias e dicas
 //Teste da Journal
 
 

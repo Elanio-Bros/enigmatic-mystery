@@ -16,13 +16,14 @@ if ($_POST['tipo'] == 'PR') {
     $_SESSION['user'] = $user;
     $_SESSION['game'] = $question;
 } else if ($_POST['tipo'] == 'RT') {
-    $tipo = "roteiros";
-    $numEnigma = numEngima($_POST['nivel'], $tipo);
-    $journal = new Journal($numEnigma['id']);
-    $user = new User($_POST['tipo'], $_POST['nickname'], nivel($_POST['nivel']), $numEnigma['id']);
+    header("Location:./");
+    // $tipo = "roteiros";
+    // $numEnigma = numEngima($_POST['nivel'], $tipo);
+    // $journal = new Journal($numEnigma['id']);
+    // $user = new User($_POST['tipo'], $_POST['nickname'], nivel($_POST['nivel']), $numEnigma['id']);
     
-    $_SESSION['user'] = $user;
-    $_SESSION['game'] = $journal;
+    // $_SESSION['user'] = $user;
+    // $_SESSION['game'] = $journal;
 }
 
 header("Location:game.php");
