@@ -69,7 +69,7 @@ class Questions
         $medias = array();
         foreach ($tipo as $key => $value) {
             $numStructure = strpos($letras, $value);
-            if(is_numeric($numStructure)){
+            if (is_numeric($numStructure)) {
                 $medias[$numStructure] = $this->structuringMedia($key, $info[$key]);
             }
         }
@@ -130,23 +130,23 @@ class Journal
     }
     public function get($tipo, $num)
     {
-        $acessoBD = explode(',', $this->enigma[$tipo])[$num];
+        $acessoBD = explode(';', $this->enigma[$tipo])[$num];
         return $acessoBD;
     }
     public function getDica($numDica)
     {
-        $dicas = explode(',', $this->enigma['dicas'])[--$numDica];
+        $dicas = explode(';', $this->enigma['dicas'])[$numDica];
         return $dicas;
     }
     public function qtndDica()
     {
-        $count = count(explode(',', $this->enigma['dicas']));
+        $count = count(explode(';', $this->enigma['dicas']));
         return $count;
     }
     public function structure()
     {
         // separa entre letras e numeros
-        $strutures = explode(',', $this->enigma['strutures']);
+        $strutures = explode(';', $this->enigma['strutures']);
         $juntos = null;
         foreach ($strutures as $key => $value) {
             if ($value == 0) {
@@ -160,7 +160,7 @@ class Journal
     public function getResposta($resposta)
     {
         $codigo = false;
-        $Getrespostas = explode(',', $this->enigma['respostas']);
+        $Getrespostas = explode(';', $this->enigma['respostas']);
         foreach ($Getrespostas as $key => $respotas) {
             if ($respotas == $resposta) {
                 $this->numFase = $key;
@@ -171,7 +171,7 @@ class Journal
     }
     public function pontosRespostas()
     {
-        return explode(',', $this->enigma['pontos'])[$this->numFase];
+        return explode(';', $this->enigma['pontos'])[$this->numFase];
     }
 
     private function montandoEstrura($conteudo, $valor = 0, $media = null, $link = null)
@@ -182,13 +182,10 @@ class Journal
         switch ($valor) {
             case 1:
                 return "<div class='conteudo row'><p>$conteudo</p>$media</div>";
-
             case 2:
                 return "<div class='conteudo row'>$media<p>$conteudo</p></div>";
-
             case 3:
                 return "<div class='conteudo2 column'>$media<p>$conteudo</p></div>";
-
             default:
                 return "<div class='conteudo4'>$conteudo</div>";
         }
@@ -200,9 +197,9 @@ class Journal
             case 'i':
                 return "<img class='img' src='$link'>";
             case 'v':
-                return "<video src='$link' preload='auto' controls controlslist='nodownload'/>";
+                return "<video src='$link' preload='auto' controls controlslist='nodownload'></video>";
             case 'a':
-                return  "<audio src='$link' preload='auto' controls controlslist='nodownload'/>";
+                return  "<audio src='$link' preload='auto' controls controlslist='nodownload'></audio>";
         }
     }
 }

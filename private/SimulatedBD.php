@@ -19,7 +19,8 @@
         $dsn = 'mysql:host=localhost;dbname=PCC';
         $user = 'root';
         $passw = '';
-        $this->conexao = new PDO($dsn, $user, $passw);
+        $utf=array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8");
+        $this->conexao = new PDO($dsn, $user, $passw,$utf);
         $this->tabela = $table;
     }
     public function prepare($query)

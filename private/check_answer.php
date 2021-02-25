@@ -36,7 +36,7 @@ function dica($user, $game)
     }
 }
 
-function resposta($user, $game, $resposta)
+function resposta($user, $game,$resposta)
 {
     if ($user->type == 'PR') {
         if ($user->getFase() == $user->getFaseFinal()) {

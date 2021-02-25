@@ -40,10 +40,14 @@ function toogleRadio(num){
         document.getElementById('radioR').style.borderColor=noselect;
         document.getElementById('radioPR').style.borderColor='blue';
         document.getElementsByName('tipo')[0].checked=true;
+        document.getElementById('nivel').value='';
+        document.getElementById('nivel').disabled=false
     }else if(num==1){
         document.getElementById('radioPR').style.borderColor=noselect;
         document.getElementById('radioR').style.borderColor='red';
         document.getElementsByName('tipo')[1].checked=true;
+        document.getElementById('nivel').value='muito facil';
+        document.getElementById('nivel').disabled=true
     }
 }
 

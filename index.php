@@ -25,7 +25,7 @@ session_destroy();
         <div class="form">
             <form name="form" action="validate.php" method="POST">
                 <input type="text" class="input" name="nickname" placeholder="Digite um Nickname">
-                <select class="input" style="margin:15px;" name="nivel" >
+                <select id="nivel" class="input" style="margin:15px;" name="nivel" >
                     <option value="">Selecione o Nível</option>
                     <option value="muito facil">&#128512; Muito Fácil</option>
                     <option value="facil">&#128513; Fácil</option>
